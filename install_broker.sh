@@ -35,4 +35,4 @@ docker-compose --version
 sudo git clone https://github.com/opacity/brokernode && cd brokernode
 # build docker image (this can take a while) and start it in detached mode (default port: 3000)
 # sudo docker-compose up --build -d
-echo "1.  Create .env file and populate with needed values. \n2.  Run docker-compose up --build -d \n(OPTIONAL: put "DEBUG=1" at the start of the docker-compose command to run in debug mode)
+echo "Thank you for setting up a brokernode!  Next steps:  \n1.  Create .env file and populate with needed values. \n2.  Run docker-compose up --build -d \n(OPTIONAL: put "DEBUG=1" at the start of the docker-compose command to run in debug mode)
