@@ -9,11 +9,11 @@ sudo apt-get -y install software-properties-common -y && sudo add-apt-repository
 sudo sh -c 'echo JAVA_HOME="/usr/lib/jvm/java-8-oracle" >> /etc/environment' && source /etc/environment
 #add iota user and prepare dirs
 sudo useradd -s /usr/sbin/nologin -m iota
-sudo -u iota mkdir -p /home/iota/node /home/iota/node/ixi /home/iota/node/oysterdb
-#install Oyster.ixi
-cd //home/iota/node/ixi && sudo -u iota git clone https://github.com/oysterprotocol/oyster.ixi/ Oyster
+sudo -u iota mkdir -p /home/iota/node /home/iota/node/ixi /home/iota/node/opacitydb
+#install Opacity.ixi
+cd //home/iota/node/ixi && sudo -u iota git clone https://github.com/opacity/opacity.ixi/ Opacity
 ### - we can enable this later when we're using this code for prod
-#find latest IRI (Oyster) release 
+#find latest IRI (Opacity) release 
 #LATEST_RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/iotaledger/iri/releases/latest)
 # The releases are returned in the format {"id":7789623,"tag_name":"iri-1.4.1.7",...}, we have to extract the tag_name.
 #LATEST_VERSION=$(echo $LATEST_RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
@@ -47,7 +47,7 @@ ExecReload=/bin/kill -HUP $MAINPID
 KillMode=mixed
 KillSignal=SIGTERM
 TimeoutStopSec=60
-ExecStart=/usr/bin/java -$xmx -Djava.net.preferIPv4Stack=true -jar iri-1.4.2.4.jar -c iota.ini --mwm 9 --testnet --testnet-no-coo-validation
+ExecStart=/usr/bin/java -$xmx -Djava.net.preferIPv4Stack=true -jar iri-1.4.2.4.jar -c iota.ini --mwm 6 --testnet --testnet-no-coo-validation
 SyslogIdentifier=IRI
 Restart=on-failure
 RestartSec=30
@@ -66,7 +66,7 @@ API_HOST = 0.0.0.0
 IXI_DIR = ixi
 HEADLESS = true
 DEBUG = false
-DB_PATH = oysterdb
+DB_PATH = opacitydb
 RESCAN_DB = false
 REMOTE_LIMIT_API = "interruptAttachingToTangle, attachToTangle, setApiRateLimit, getNeighbors, addNeighbors, removeNeighbors, getTips, getInclusionStates, getBalances"
 EOF
