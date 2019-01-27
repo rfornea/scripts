@@ -32,6 +32,6 @@ docker-compose --version
 
 ##### --- BROKER --- #####
 # download broker repo
-sudo git clone https://github.com/oysterprotocol/brokernode && cd brokernode
+sudo git clone https://github.com/opacity/brokernode && cd brokernode
 # build docker image (this can take a while) and start it in detached mode (default port: 3000)
-sudo docker-compose up --build -d
+# sudo docker-compose up --build -d
